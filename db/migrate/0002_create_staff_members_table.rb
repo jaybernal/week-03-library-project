@@ -6,5 +6,4 @@ class CreateStaffMembersTable < ActiveRecord::Migration
 			t.string 		:staff_email
 		end
 	end
-
 end
