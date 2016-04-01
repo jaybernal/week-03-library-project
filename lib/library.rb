@@ -5,5 +5,6 @@ class Library < ActiveRecord::Base
 	validates :address, presence: true
 
 	has_many :staff_members
+	has_many :books
 
 end

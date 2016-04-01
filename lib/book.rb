@@ -4,4 +4,7 @@ class Book < ActiveRecord::Base
 	validates :author, presence: true
 	validates :isbn, presence: true
 
+	belongs_to :library
+	belongs_to :customer
+
 end
