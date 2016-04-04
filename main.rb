@@ -66,12 +66,10 @@ def library_book_menu
 	if choice == 1
 		Book.all.each do |i|
 			puts "ID: #{i.id}\nTitle: #{i.title}\n\tAuthor: #{i.author}\n\tISBN: #{i.isbn}"
-			making_edits
 		end
 	elsif choice == 2
 		Book.where(library_id: nil).each do |i|
-			puts "ID: #{i.id}\nTitle: #{i.title}\n\tAuthor: #{i.author}\n\tISBN: #{i.isbn}"
-			library_book_menu
+			puts "ID: #{i.id}\nTitle: #{i.title}\n\tAuthor: #{i.author}\n\tISBN: #{i.isbn} \n\tCheck-Out By: #{i.customer.name}"
 		end
 	elsif choice == 5
 		library_main_menu
