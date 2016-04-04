@@ -55,8 +55,7 @@ def library_book_menu
 	puts "Select 2, Display available books"
 	# puts "Select 3, Edit current books"
 	# puts "Select 4, Add new books"
-	# puts "Select 5, Return to the library main menu"
-	# puts "Select 6, To Exit Program"
+	puts "Select 5, Return to the library main menu"
 	choice = gets.chomp.to_i
 
 	while choice != 1 && choice != 2 && choice != 3 && choice !=4 && choice !=5 && choice !=6
@@ -64,20 +63,28 @@ def library_book_menu
 		choice = gets.chomp.to_i
 	end
 
-	# if choice == 1
-	# 	Book.all.each do |i|
-	# 		puts "Title: #{i.title}\n\tAuthor: #{i.author}\n\tISBN: #{i.isbn}"
-	# 	end
-	if choice == 2
-		Book.where(library_id: nil) do |i|
-			puts i.title
+	if choice == 1
+		Book.all.each do |i|
+			puts "ID: #{i.id}\nTitle: #{i.title}\n\tAuthor: #{i.author}\n\tISBN: #{i.isbn}"
+			making_edits
 		end
-			
-
+	elsif choice == 2
+		Book.where(library_id: nil).each do |i|
+			puts "ID: #{i.id}\nTitle: #{i.title}\n\tAuthor: #{i.author}\n\tISBN: #{i.isbn}"
+			library_book_menu
+		end
+	elsif choice == 5
+		library_main_menu
 	end
+	
 end
 
-
+def making_edits
+	puts "Do you want to make edits, return to main main or exit"
+	puts "Select 1, Edit a book"
+	puts "Select 2, Add a new Book"
+	puts "Select 3, Delete a Book"
+end
 
 out = Book.where(library_id: nil) do |i|
 puts out.title
